@@ -1,0 +1,33 @@
+<!DOCTYPE html 
+
+{% autoescape true %}
+
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <table>
+        <tr>  <td>City</td>  <td> State</td><td>Country</td> <td>Capital</td> <td>Population</td></tr>
+    
+    {{ range .}}
+    <tr>  <td>{{.Name}}</td>  <td>{{ .State}}</td><td>{{.Country}}</td> <td>{{.Capital}}</td> <td>{{ .Population}}</td> <td><a href="./edit/{{.CityID}}">EDIT</td></tr>
+    {{ end }}
+
+    
+</table>
+
+
+<P>Add a New City:</P>
+<P>
+    <form action="/create" method="POST">
+    <br>Name: <input type='text' name='name'> State: <input type='text' size='3' name='state'> Country: <input type='text' name='country'> Capital:<input type="checkbox" value='true' name='capital'> Population: <input type='text' size='10' name='population'>
+    </br>
+    <input type="submit" value="Submit"></p>
+    </form>
+</P>
+
+</body>
+</html>
+  

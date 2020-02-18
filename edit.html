@@ -1,0 +1,29 @@
+<!DOCTYPE html 
+
+{% autoescape true %}
+
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+<P>Edit Data for {{.Name}}:</P>
+<P>
+    <p>DocRef: </p>
+    <form action="/edit/{{.CityID}}" method="POST">
+    <br>Name: <input type='text' placeholder='{{.Name}}' name='name'> State: <input type='text' size='3' placeholder='{{.State}}' name='state'> Country: <input type='text' placeholder='{{.Country}}' name='country'> 
+    
+    {{if .Capital }}
+    Capital:<input type="checkbox" value='true' name='capital' checked> 
+    {{else}}
+    Capital:<input type="checkbox" value='true' name='capital'> 
+    {{end}}
+    Population: <input type='text' size='10' placeholder='{{.Population}}' name='population'>
+    </br>
+    <input type="submit" value="Submit"></p>
+    </form>
+</P>
+
+</body>
+</html>
